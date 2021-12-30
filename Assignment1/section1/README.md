@@ -31,7 +31,7 @@ Then they can be run (here with 4 processes):
 
 ` mpirun -np 4 ./ring_Send-Recv.x `
 
-` mpirun -np 4 ./ ring_Isend-Irecv.x `
+` mpirun -np 4 ./ring_Isend-Irecv.x `
 
 ` mpirun -np 4 ./ring_Isend-Recv.x `
 
