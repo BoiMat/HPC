@@ -34,3 +34,20 @@ Then they can be run (here with 4 processes):
 ` mpirun -np 4 ./ ring_Isend-Irecv.x `
 
 ` mpirun -np 4 ./ring_Isend-Recv.x `
+
+### Matrix
+
+The Matrix code is compiled the same way:
+
+` mpicc sum3Dmatrix.c -o sum3Dmatrix.x`
+
+The code takes as arguments of the main function three integer representing:
+
+- Number of dimension extensions for the virtual topology
+ 
+- The three dimensions for the matrices
+
+So the command would look something like for a 3D topology and 2400x100x100 matrices:
+
+` mpirun -np 4 ./sum3Dmatrix.x 3 2400 100 100 `
+
