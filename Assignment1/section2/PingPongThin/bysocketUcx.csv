@@ -1,3 +1,7 @@
+#header_line 1: mpirun -mca pml ucx --report-bindings -np 2 --map-by core ./IMB-MPI1 PingPong  -msglog 29 2> /dev/null
+#header_line 2: THIN
+#header_line 3: 0.196,6065.037
+
 "","#bytes","#repetitions","t[usec]","Mbytes/sec","Estimated_Time [usec]","Estimated_B [Mbytes/sec]","Estimated_Beff [Mbytes/sec]"
 "1",0,1000,0.41,0,0.91,0,0
 "2",1,1000,0.41,2.41,0.91,90.9090909090913,2.47411679355567
