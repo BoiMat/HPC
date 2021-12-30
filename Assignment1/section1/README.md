@@ -47,7 +47,10 @@ The code takes as arguments of the main function three integer representing:
  
 - The three dimensions for the matrices
 
-So the command would look something like for a 3D topology and 2400x100x100 matrices:
+So the command would look something like this for a 3D topology and 2400x100x100 matrices:
 
 ` mpirun -np 4 ./sum3Dmatrix.x 3 2400 100 100 `
 
+For the other cases present in the GitHub repository (sum3Dmatrix_noVT.c and sum3Dmatrix_serial.c) given the fact that there is not virtual topology the corresponding argument in the command is not needed and the code can be run with:
+
+` mpirun -np 4 ./sum3Dmatrix_noVT.x 2400 100 100 `
