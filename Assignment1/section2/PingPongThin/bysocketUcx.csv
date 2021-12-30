@@ -1,4 +1,4 @@
-#header_line 1: mpirun -mca pml ucx --report-bindings -np 2 --map-by core ./IMB-MPI1 PingPong  -msglog 29 2> /dev/null
+#header_line 1: mpirun -mca pml ucx --report-bindings -np 2 --map-by core ./IMB-MPI1 PingPong  -msglog 29 2> /dev/null,,,,,,,,
 #header_line 2: THIN
 #header_line 3: 0.196 - 6065.037
 
