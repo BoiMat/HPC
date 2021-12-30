@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     double start, end;
     int rank, value, size, itag_r, itag_l, msgleft, msgright, tmpleft, tmpright, true=1, false=0;
     int right_p, left_p;
-    int n_iter = 1000000;
+    int n_iter = 1;
     MPI_Comm   ring_comm;
     MPI_Status stats[2];
 
