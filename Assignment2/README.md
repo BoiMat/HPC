@@ -18,12 +18,16 @@ OpenMP:
 To run the codes with a 10000 points array, 4 parallel workers:
 
 Serial:
+
 ` ./kd_tree.x 10000	` 
 
 MPI:
+
 ` mpirun -np 4 mpi_tree.x 10000 /sys/ 2> /dev/null `
 
 OpenMP:
+
 ` export OMP_NUM_THREADS=$P `
+
 ` ./openmp_tree.x 10000 `
 
