@@ -15,13 +15,15 @@ MPI:
 OpenMP:
 ` gcc -o openmp_tree.x -fopenmp OPENMP_kd_tree.c `
 
-To run the codes:
+To run the codes with a 10000 points array, 4 parallel workers:
 
 Serial:
-` ./kd_tree.x 10000	`
+` ./kd_tree.x 10000	` 
 
 MPI:
-` mpirun -np $P mpi_tree.x $N /sys/ 2> /dev/null `
+` mpirun -np 4 mpi_tree.x 10000 /sys/ 2> /dev/null `
 
 OpenMP:
-` ./openmp_tree.x $N `
+` export OMP_NUM_THREADS=$P `
+` ./openmp_tree.x 10000 `
+
