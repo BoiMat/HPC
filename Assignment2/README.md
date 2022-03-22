@@ -15,6 +15,8 @@ MPI:
 OpenMP:
 ` gcc -o openmp_tree.x -fopenmp OPENMP_kd_tree.c `
 
+## Run
+
 To run the codes with a 10000 points array, 4 parallel workers:
 
 Serial:
@@ -31,3 +33,7 @@ OpenMP:
 
 ` ./openmp_tree.x 10000 `
 
+## Output
+The output will be in the form:
+
+` Size = 10000     Threads = 12    Runtime = 0.00418282 sec `
