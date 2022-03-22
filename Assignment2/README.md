@@ -29,7 +29,7 @@ MPI:
 
 OpenMP:
 
-` export OMP_NUM_THREADS=$P `
+` export OMP_NUM_THREADS=4 `
 
 ` ./openmp_tree.x 10000 `
 
