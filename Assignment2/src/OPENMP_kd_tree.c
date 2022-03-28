@@ -46,14 +46,16 @@ typedef struct kdnode{
 void create_2darray(kpoint *array, uint size);
 void swap(kpoint *x, kpoint *y);
 kpoint* choose_splitting_point(kpoint *start, kpoint *end, uint axis);	
-kdnode* build_kdtree (kpoint *t, uint N, uint axis, uint ndim );	
+kdnode* build_kdtree (kpoint *t, uint N, uint axis, uint ndim );
+void treeprint(kdnode *root, int level);
 
 int main(int argc, char **argv) {
 
 	struct timespec ts, myts;
 	uint threads = 1;
 	uint axis = 0;
-	uint N = argc >=2 ? atoi(argv[1]) : 100000000;
+	uint N = argc >= 2 ? atoi(argv[1]) : 100000000;
+	uint c = argc >= 3 ?  atoi(argv[2]) : 0;
 
 	kpoint *data = (kpoint*) malloc (N * sizeof(kpoint));
 
@@ -74,6 +76,9 @@ int main(int argc, char **argv) {
 
 	double end = CPU_TIME;
 	printf("OpenMP: Size = %d\t Threads = %d\t Runtime = %g sec\n", N, threads, end-start);
+
+	if (c != 0)
+		treeprint(root, 0);
 	
 	free(data);
 
@@ -191,4 +196,15 @@ kdnode *build_kdtree (kpoint *t, uint N, uint axis, uint ndim ) {
 			node->right = build_kdtree(n + 1, t + N - (n + 1), axis, ndim);
 	}
 	return node;
+}
+
+void treeprint(kdnode *root, int level)
+{
+        if (root == NULL)
+                return;
+        for (int i = 0; i < level; i++)
+                printf(i == level - 1 ? "|-" : "  ");
+        printf("(%f,%f)\n", root->split.x[0], root->split.x[1]);
+        treeprint(root->left, level + 1);
+        treeprint(root->right, level + 1);
 }
