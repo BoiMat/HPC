@@ -205,27 +205,20 @@ kdnode *build_kdtree(kpoint *t, int N, int axis, int ndim, int depth)
 	}
 	else 						// if the number of nodes in the next level (2^depth) is smaller than the number of processes,
 	{						// the current process will keep the left subarray and send the right one to a free process.
-		kpoint *rightbuff = (kpoint*) malloc(rightdim*sizeof(kpoint));
 		int *info = (int*) malloc(2 * sizeof(int));
 		int recv = pow(2,depth) + rank;
 		info[0] = rightdim; 
 		info[1] = axis;
-
-		for (int j=0; j<rightdim; j++) {
-			rightbuff[j].x[0] = (n+1+j)->x[0];
-			rightbuff[j].x[1] = (n+1+j)->x[1];
-		}
-			
+		
 		#ifdef DEBUG 
 		printf("Here proc %d, depth is %d. Sending to proc %d a subarray with %d points\n", rank, depth, rightdim, recv);
 		#endif
 
 		MPI_Send(info, 2, MPI_INT, recv, 0, MPI_COMM_WORLD);
-		MPI_Send(rightbuff, rightdim, p_kpoint, recv, 0, MPI_COMM_WORLD);
+		MPI_Send((n+1), rightdim, p_kpoint, recv, 0, MPI_COMM_WORLD);
 
 		node->left = build_kdtree(t, n - t, axis, ndim, depth);
-
-		free(rightbuff);
+		
 		free(info);
 	}
 	return node;
