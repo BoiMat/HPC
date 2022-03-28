@@ -45,5 +45,5 @@ The output will be in the form:
 ## Timings
 
 The timings both in a Strong scaling and Weak scaling scenario are present in the "timings" folder in the form of .csv files.
-In the strong scaling scenario they report the number of parallel workers (MPI processes or OpenMP threads), the average timing and related standard deviation for an array of 10^8 points.
+In the strong scaling scenario they report the number of parallel workers (MPI processes or OpenMP threads), the average timing and related standard deviation for an array of 10**8 points.
 In the weak scaling scenario also the size of the array is present.
