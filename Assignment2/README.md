@@ -33,6 +33,10 @@ OpenMP:
 
 ` ./openmp_tree.x 10000 `
 
+An additional argument can be added to print the final tree, e.g.:
+
+` ./openmp_tree.x 10000 1`
+
 ## Output
 The output will be in the form:
 
