@@ -212,9 +212,8 @@ kdnode *build_kdtree(kpoint *t, int N, int axis, int ndim, int depth)
 		info[1] = axis;
 
 		for (int j=0; j<rightdim; j++) {
-			kpoint *tmpr = n+1+j;
-			rightbuff[j].x[0] = tmpr->x[0];
-			rightbuff[j].x[1] = tmpr->x[1];
+			rightbuff[j].x[0] = (n+1+j)->x[0];
+			rightbuff[j].x[1] = (n+1+j)->x[1];
 		}
 			
 		#ifdef DEBUG 
